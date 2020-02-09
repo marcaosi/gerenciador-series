@@ -20,3 +20,9 @@ $router->get('/serie/{id}', "SerieController@get");
 $router->post('/serie', "SerieController@post");
 $router->put('/serie/{id}', "SerieController@put");
 $router->delete('/serie/{id}', "SerieController@delete");
+
+$router->get('/episode', "EpisodeController@get");
+$router->get('/episode/{id}', "EpisodeController@get");
+$router->post('/episode', "EpisodeController@post");
+$router->put('/episode/{id}', "EpisodeController@put");
+$router->delete('/episode/{id}', "EpisodeController@delete");
