@@ -11,4 +11,15 @@ class Serie extends Model{
 
     protected $table = "serie";
 
+    protected $appends = [
+        "links"
+    ];
+
+    public function getLinksAttribute(){
+        return [
+            "self" => "/serie/{$this->id}",
+            "episodes" => "/serie/{$this->id}/episodes"
+        ];
+    }
+
 }
