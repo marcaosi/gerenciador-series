@@ -17,22 +17,24 @@ abstract class BaseController extends Controller{
                 return $serie;
             }
         }else{
+            $itemsPage = 15;
+
+            if($request->has('itensPage')){
+                $itemsPage = $request->get('itemsPage');
+            }
             if($request->has('limit') && $request->has('offset')){
                 $limit = $request->get('limit');
                 $offset = $request->get('offset');
 
-                $itemsPage = 10;
-
-                if($request->has('itensPage')){
-                    $itemsPage = $request->get('itemsPage');
-                }
 
                 $series = $this->entity::offset($offset)
                                       ->limit($limit)
                                       ->paginate($itemsPage);
                                       
             }
-            $series = $this->entity::paginate();
+            $series = $this->entity::paginate($itemsPage);
+
+            return $series;
         }
     }
 
