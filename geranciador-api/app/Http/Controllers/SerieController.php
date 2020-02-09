@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class SerieController extends BaseController
 {
     
@@ -12,5 +14,9 @@ class SerieController extends BaseController
             "description" => "required|string", 
             "user_id" => "required|integer"
         ];
+    }
+
+    public function getEpisodes(Request $request, $id){
+        return \App\Episode::where("serie_id", "=", $id)->get();
     }
 }

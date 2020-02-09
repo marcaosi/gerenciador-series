@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
 
 $router->get('/serie', "SerieController@get");
 $router->get('/serie/{id}', "SerieController@get");
+$router->get('/serie/{id}/episodes', "SerieController@getEpisodes");
 $router->post('/serie', "SerieController@post");
 $router->put('/serie/{id}', "SerieController@put");
 $router->delete('/serie/{id}', "SerieController@delete");
